@@ -5959,11 +5959,6 @@ lodash._reinterpolate@^3.0.0:
   resolved "https://registry.yarnpkg.com/lodash._reinterpolate/-/lodash._reinterpolate-3.0.0.tgz#0ccf2d89166af03b3663c796538b75ac6e114d9d"
   integrity sha1-DM8tiRZq8Ds2Y8eWU4t1rG4RTZ0=
 
-lodash.isinteger@^4.0.4:
-  version "4.0.4"
-  resolved "https://registry.yarnpkg.com/lodash.isinteger/-/lodash.isinteger-4.0.4.tgz#619c0af3d03f8b04c31f5882840b77b11cd68343"
-  integrity sha1-YZwK89A/iwTDH1iChAt3sRzWg0M=
-
 lodash.memoize@^4.1.2:
   version "4.1.2"
   resolved "https://registry.yarnpkg.com/lodash.memoize/-/lodash.memoize-4.1.2.tgz#bcc6c49a42a2840ed997f323eada5ecd182e0bfe"
@@ -8155,13 +8150,6 @@ react-scripts@3.2.0:
     workbox-webpack-plugin "4.3.1"
   optionalDependencies:
     fsevents "2.0.7"
-
-react-styled-flexboxgrid@^3.1.0:
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/react-styled-flexboxgrid/-/react-styled-flexboxgrid-3.1.0.tgz#be0d472c0be8f981a4dc3a390a870ce2785644c0"
-  integrity sha512-K2Cz5giccqSbcL6KH+xcI5OL6bzZ+8POSYzKJQXthwnrMVVNjwAQ8NQaK3/zShz52CZwTgsYGwJFCnFIvQ6b8g==
-  dependencies:
-    lodash.isinteger "^4.0.4"
 
 react@^16.11.0:
   version "16.11.0"
