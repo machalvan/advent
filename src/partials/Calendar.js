@@ -56,7 +56,7 @@ export const Calendar = () => {
     <StyledCalendar>
       <StyledHeader>Advent</StyledHeader>
       <StyledWindows>
-        {windows.map(window => <Window {...window} />)}
+        {windows.map(window => <Window key={`window__${window.id}`} {...window} />)}
       </StyledWindows>
     </StyledCalendar>
   )
