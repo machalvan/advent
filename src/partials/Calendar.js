@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import React from "react";
+import {Window} from "./Window";
 
 const StyledCalendar = styled.div`
   max-width: 960px;
@@ -9,10 +10,10 @@ const StyledCalendar = styled.div`
 const StyledHeader = styled.h1`
   text-align: center;
   color: white;
-  font-family: Arial;
+  font-family: Arial, sans-serif;
 `
 
-const StyledList = styled.ul`
+const StyledWindows = styled.ul`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   grid-auto-rows: minmax(200px, auto);
@@ -21,12 +22,6 @@ const StyledList = styled.ul`
   list-style: none;
   margin: 10px 20px 0;
   padding: 0;
-`
-
-const StyledListItem = styled.li`
-  width: 100%;
-  border: 1px solid white;
-  color: white;
 `
 
 const windows = [
@@ -59,10 +54,10 @@ const windows = [
 export const Calendar = () => {
   return (
     <StyledCalendar>
-      <StyledHeader>Dog calendar</StyledHeader>
-      <StyledList>
-        {windows.map(window => <StyledListItem>{window.id}</StyledListItem>)}
-      </StyledList>
+      <StyledHeader>Advent</StyledHeader>
+      <StyledWindows>
+        {windows.map(window => <Window {...window} />)}
+      </StyledWindows>
     </StyledCalendar>
   )
 }
