@@ -40,7 +40,7 @@ const StyledOpen = styled.div`
   transform: rotateY(180deg);
 `
 
-export const Window = ({id}) => {
+export const Window = ({id, content}) => {
   const [open, setOpen] = useState(false)
 
   const handleClick = event => {
@@ -55,7 +55,7 @@ export const Window = ({id}) => {
           {id}
         </StyledClosed>
         <StyledOpen>
-          Open
+          {content}
         </StyledOpen>
       </StyledInnerWindow>
     </StyledWindow>
