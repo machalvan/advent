@@ -29,9 +29,14 @@ const StyledIframe = styled.iframe`
   height: 100%;
 `
 
+const StyledVideo = styled.video`
+  width: 100%;
+  height: 100%;
+`
+
 const windows = [
   {id: 1, content: <StyledIframe src="//www.youtube.com/embed/FKWwdQu6_ok?enablejsapi=1" frameBorder="0" id="video" />},
-  {id: 2, content: 'open'},
+  {id: 2, content: <StyledVideo src='https://scontent-arn2-1.cdninstagram.com/vp/ceef9f24d14600b8e40fe5aa66a10c71/5DC4DD02/t50.2886-16/76685791_407586596862678_261916028220925996_n.mp4?_nc_ht=scontent-arn2-1.cdninstagram.com&_nc_cat=106' controls/>},
   {id: 3, content: 'open'},
   {id: 4, content: 'open'},
   {id: 5, content: 'open'},
