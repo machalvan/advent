@@ -1,6 +1,7 @@
 import styled from "styled-components";
-import React from "react";
+import React, {useEffect, useState} from "react";
 import {Window} from "./Window";
+import dog1 from './dog1.mp4';
 
 const StyledCalendar = styled.div`
   max-width: 960px;
@@ -34,13 +35,27 @@ const StyledVideo = styled.video`
   height: 100%;
 `
 
+const Video = ({id, play, src}) => {
+  useEffect(() => {
+    play && document.getElementById(`video__${id}`).play();
+  })
+
+  return (
+    <StyledVideo id={`video__${id}`} controls>
+      <source src={src} type="video/mp4"/>
+      Your browser does not support the video tag.
+    </StyledVideo>
+  )
+}
+
 const windows = [
-  {id: 1, content: <StyledIframe src="//www.youtube.com/embed/FKWwdQu6_ok?enablejsapi=1" frameBorder="0" id="video" />},
-  {id: 2, content: <StyledVideo src='https://scontent-arn2-1.cdninstagram.com/vp/ceef9f24d14600b8e40fe5aa66a10c71/5DC4DD02/t50.2886-16/76685791_407586596862678_261916028220925996_n.mp4?_nc_ht=scontent-arn2-1.cdninstagram.com&_nc_cat=106' controls/>},
-  {id: 3, content: 'open'},
-  {id: 4, content: 'open'},
-  {id: 5, content: 'open'},
-  {id: 6, content: 'open'},
+  {id: 1, content: (open) => <Video id={1} play={open} src={dog1} />},
+  {id: 2, content: (open) => <Video id={2} play={open} src={dog1} />},
+  {id: 3, content: (open) => <Video id={3} play={open} src={dog1} />},
+  {id: 4, content: (open) => <Video id={4} play={open} src={dog1} />},
+  {id: 5, content: (open) => <Video id={5} play={open} src={dog1} />},
+  {id: 6, content: (open) => <Video id={6} play={open} src={dog1} />},
+  /*
   {id: 7, content: 'open'},
   {id: 8, content: 'open'},
   {id: 9, content: 'open'},
@@ -59,6 +74,7 @@ const windows = [
   {id: 22, content: 'open'},
   {id: 23, content: 'open'},
   {id: 24, content: 'open'},
+  */
 ]
 
 export const Calendar = () => {

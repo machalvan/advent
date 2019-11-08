@@ -32,6 +32,7 @@ const StyledInnerWindow = styled.div`
 const StyledClosed = styled.div`
   padding-left: 10px;
   padding-top: 5px;
+  cursor: pointer;
 `
 
 const StyledOpen = styled.div`
@@ -55,7 +56,7 @@ export const Window = ({id, content}) => {
           {id}
         </StyledClosed>
         <StyledOpen>
-          {content}
+          {content(open)}
         </StyledOpen>
       </StyledInnerWindow>
     </StyledWindow>
