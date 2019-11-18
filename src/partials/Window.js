@@ -59,11 +59,22 @@ const getAbleToOpen = (id) => {
 }
 
 export const Window = ({id, content}) => {
-  const [open, setOpen] = useState(false)
+  const windows = JSON.parse(localStorage.getItem('windows'))
+  const open = windows ? windows[id] : false
+  const [play, setPlay] = useState(false)
   const ableToOpen = getAbleToOpen(id)
 
   const handleClick = () => {
-    setOpen(true)
+    setPlay(true)
+    const windows = JSON.parse(localStorage.getItem('windows')) || {};
+    console.log(windows);
+
+    const newWindows = {
+      ...windows,
+      [id]: true,
+    }
+
+    localStorage.setItem('windows', JSON.stringify(newWindows))
   }
 
   return (
@@ -73,7 +84,7 @@ export const Window = ({id, content}) => {
           {id}
         </StyledClosed>
         <StyledOpen>
-          {content(open)}
+          {content(play)}
         </StyledOpen>
       </StyledInnerWindow>
     </StyledWindow>
