@@ -32,7 +32,7 @@ const StyledInnerWindow = styled.div`
 const StyledClosed = styled.div`
   padding-left: 10px;
   padding-top: 5px;
-  cursor: pointer;
+  cursor: ${props => props.ableToOpen ? 'pointer' : 'inherit'};
 `
 
 const StyledOpen = styled.div`
@@ -41,8 +41,26 @@ const StyledOpen = styled.div`
   transform: rotateY(180deg);
 `
 
+const getAbleToOpen = (id) => {
+  const currentDate = new Date()
+  console.log(currentDate, currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate());
+  console.log(currentDate.toLocaleDateString(), currentDate.toLocaleString());
+
+  if (
+    currentDate.getFullYear() === 2019 &&
+    currentDate.getMonth() === 10 &&    // 11 = december
+    currentDate.getDate() >= id
+  ) {
+    console.log('inside');
+    return true
+  }
+
+  return false
+}
+
 export const Window = ({id, content}) => {
   const [open, setOpen] = useState(false)
+  const ableToOpen = getAbleToOpen(id)
 
   const handleClick = () => {
     setOpen(true)
@@ -50,8 +68,8 @@ export const Window = ({id, content}) => {
 
   return (
     <StyledWindow onClick={handleClick}>
-      <StyledInnerWindow open={open}>
-        <StyledClosed>
+      <StyledInnerWindow open={open && ableToOpen}>
+        <StyledClosed ableToOpen={ableToOpen}>
           {id}
         </StyledClosed>
         <StyledOpen>
