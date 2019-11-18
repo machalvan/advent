@@ -44,8 +44,7 @@ const StyledOpen = styled.div`
 export const Window = ({id, content}) => {
   const [open, setOpen] = useState(false)
 
-  const handleClick = event => {
-    console.log('click');
+  const handleClick = () => {
     setOpen(true)
   }
 
