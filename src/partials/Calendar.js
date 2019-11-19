@@ -32,7 +32,9 @@ const StyledVideo = styled.video`
 
 const Video = ({play, src}) => {
   const ref = React.createRef();
-  useEffect(() => play && ref.current.play())
+  useEffect(() => {
+    play && ref.current.play()
+  })
 
   return (
     <StyledVideo ref={ref} controls loop>
