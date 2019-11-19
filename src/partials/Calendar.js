@@ -68,7 +68,7 @@ const windows = [
   {id: 21, content: (play) => <Video play={play} src={dogs.dog1} />},
   {id: 22, content: (play) => <Video play={play} src={dogs.dog1} />},
   {id: 23, content: (play) => <Video play={play} src={dogs.dog1} />},
-  {id: 24, content: (play) => <Video play={play} src={dogs.dog24} />},
+  {id: 24, content: (play) => <Video play={play} src={dogs.dog1} />},
 ]
 
 export const Calendar = () => {

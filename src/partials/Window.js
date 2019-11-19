@@ -43,15 +43,15 @@ const StyledOpen = styled.div`
 
 const getAbleToOpen = (id) => {
   const currentDate = new Date()
-  const december = 11
+  console.log(currentDate, currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate());
+  console.log(currentDate.toLocaleDateString(), currentDate.toLocaleString());
 
-  if ((
+  if (
     currentDate.getFullYear() === 2019 &&
-    currentDate.getMonth() === december &&
+    currentDate.getMonth() === 10 &&    // 11 = december
     currentDate.getDate() >= id
-  ) || (
-    currentDate.getFullYear() > 2018
-  )) {
+  ) {
+    console.log('inside');
     return true
   }
 
@@ -65,16 +65,16 @@ export const Window = ({id, content}) => {
   const ableToOpen = getAbleToOpen(id)
 
   const handleClick = () => {
-    if (ableToOpen) {
-      const windows = JSON.parse(localStorage.getItem('windows')) || {};
-      const newWindows = {
-        ...windows,
-        [id]: true,
-      }
+    setPlay(true)
+    const windows = JSON.parse(localStorage.getItem('windows')) || {};
+    console.log(windows);
 
-      localStorage.setItem('windows', JSON.stringify(newWindows))
-      setPlay(true);
+    const newWindows = {
+      ...windows,
+      [id]: true,
     }
+
+    localStorage.setItem('windows', JSON.stringify(newWindows))
   }
 
   return (
