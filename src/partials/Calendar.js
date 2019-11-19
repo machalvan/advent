@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import React, {useEffect} from "react";
 import {Window} from "./Window";
-import dog1 from '../res/videos/dog1.mp4';
+import dogs from "../res/videos/dogs";
 
 const StyledCalendar = styled.div`
   max-width: 960px;
@@ -30,15 +30,12 @@ const StyledVideo = styled.video`
   height: 100%;
 `
 
-const Video = ({id, play, src}) => {
+const Video = ({play, src}) => {
   const ref = React.createRef();
-
-  useEffect(() => {
-    play && ref.current.play();
-  })
+  useEffect(() => play && ref.current.play())
 
   return (
-    <StyledVideo ref={ref} controls>
+    <StyledVideo ref={ref} controls loop>
       <source src={src} type="video/mp4"/>
       Your browser does not support the video tag.
     </StyledVideo>
@@ -46,30 +43,30 @@ const Video = ({id, play, src}) => {
 }
 
 const windows = [
-  {id: 1, content: (play) => <Video play={play} src={dog1} />},
-  {id: 2, content: (play) => <Video play={play} src={dog1} />},
-  {id: 3, content: (play) => <Video play={play} src={dog1} />},
-  {id: 4, content: (play) => <Video play={play} src={dog1} />},
-  {id: 5, content: (play) => <Video play={play} src={dog1} />},
-  {id: 6, content: (play) => <Video play={play} src={dog1} />},
-  {id: 7, content: (play) => <Video play={play} src={dog1} />},
-  {id: 8, content: (play) => <Video play={play} src={dog1} />},
-  {id: 9, content: (play) => <Video play={play} src={dog1} />},
-  {id: 10, content: (play) => <Video play={play} src={dog1} />},
-  {id: 11, content: (play) => <Video play={play} src={dog1} />},
-  {id: 12, content: (play) => <Video play={play} src={dog1} />},
-  {id: 13, content: (play) => <Video play={play} src={dog1} />},
-  {id: 14, content: (play) => <Video play={play} src={dog1} />},
-  {id: 15, content: (play) => <Video play={play} src={dog1} />},
-  {id: 16, content: (play) => <Video play={play} src={dog1} />},
-  {id: 17, content: (play) => <Video play={play} src={dog1} />},
-  {id: 18, content: (play) => <Video play={play} src={dog1} />},
-  {id: 19, content: (play) => <Video play={play} src={dog1} />},
-  {id: 20, content: (play) => <Video play={play} src={dog1} />},
-  {id: 21, content: (play) => <Video play={play} src={dog1} />},
-  {id: 22, content: (play) => <Video play={play} src={dog1} />},
-  {id: 23, content: (play) => <Video play={play} src={dog1} />},
-  {id: 24, content: (play) => <Video play={play} src={dog1} />},
+  {id: 1, content: (play) => <Video play={play} src={dogs.dog1} />},
+  {id: 2, content: (play) => <Video play={play} src={dogs.dog2} />},
+  {id: 3, content: (play) => <Video play={play} src={dogs.dog3} />},
+  {id: 4, content: (play) => <Video play={play} src={dogs.dog1} />},
+  {id: 5, content: (play) => <Video play={play} src={dogs.dog1} />},
+  {id: 6, content: (play) => <Video play={play} src={dogs.dog1} />},
+  {id: 7, content: (play) => <Video play={play} src={dogs.dog1} />},
+  {id: 8, content: (play) => <Video play={play} src={dogs.dog1} />},
+  {id: 9, content: (play) => <Video play={play} src={dogs.dog1} />},
+  {id: 10, content: (play) => <Video play={play} src={dogs.dog1} />},
+  {id: 11, content: (play) => <Video play={play} src={dogs.dog1} />},
+  {id: 12, content: (play) => <Video play={play} src={dogs.dog1} />},
+  {id: 13, content: (play) => <Video play={play} src={dogs.dog1} />},
+  {id: 14, content: (play) => <Video play={play} src={dogs.dog1} />},
+  {id: 15, content: (play) => <Video play={play} src={dogs.dog1} />},
+  {id: 16, content: (play) => <Video play={play} src={dogs.dog1} />},
+  {id: 17, content: (play) => <Video play={play} src={dogs.dog1} />},
+  {id: 18, content: (play) => <Video play={play} src={dogs.dog1} />},
+  {id: 19, content: (play) => <Video play={play} src={dogs.dog1} />},
+  {id: 20, content: (play) => <Video play={play} src={dogs.dog1} />},
+  {id: 21, content: (play) => <Video play={play} src={dogs.dog1} />},
+  {id: 22, content: (play) => <Video play={play} src={dogs.dog1} />},
+  {id: 23, content: (play) => <Video play={play} src={dogs.dog1} />},
+  {id: 24, content: (play) => <Video play={play} src={dogs.dog1} />},
 ]
 
 export const Calendar = () => {
