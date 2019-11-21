@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import {Window} from "./Window";
 import dogs from "../res/videos/dogs";
 
@@ -30,6 +30,11 @@ const StyledVideo = styled.video`
   height: 100%;
 `
 
+const StyledIframe = styled.iframe`
+  width: 100%;
+  height: 100%;
+`
+
 const Video = ({play, src}) => {
   const ref = React.createRef();
   useEffect(() => {
@@ -44,8 +49,13 @@ const Video = ({play, src}) => {
   )
 }
 
+const YoutubeVideo = ({play, src}) => {
+  src = src + '?enablejsapi=1&autoplay=' + (play ? 1 : 0)
+  return <StyledIframe src={src} controls loop allow="autoplay; fullscreen" />
+}
+
 const windows = [
-  {id: 1, content: (play) => <Video play={play} src={dogs.dog1} />},
+  {id: 1, content: (play) => <YoutubeVideo play={play} src='https://www.youtube.com/embed/0zYW6NXnDOU' />},
   {id: 2, content: (play) => <Video play={play} src={dogs.dog2} />},
   {id: 3, content: (play) => <Video play={play} src={dogs.dog3} />},
   {id: 4, content: (play) => <Video play={play} src={dogs.dog4} />},
