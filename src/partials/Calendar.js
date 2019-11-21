@@ -48,7 +48,7 @@ const windows = [
   {id: 1, content: (play) => <Video play={play} src={dogs.dog1} />},
   {id: 2, content: (play) => <Video play={play} src={dogs.dog2} />},
   {id: 3, content: (play) => <Video play={play} src={dogs.dog3} />},
-  {id: 4, content: (play) => <Video play={play} src={dogs.dog1} />},
+  {id: 4, content: (play) => <Video play={play} src={dogs.dog4} />},
   {id: 5, content: (play) => <Video play={play} src={dogs.dog1} />},
   {id: 6, content: (play) => <Video play={play} src={dogs.dog1} />},
   {id: 7, content: (play) => <Video play={play} src={dogs.dog1} />},
