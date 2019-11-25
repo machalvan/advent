@@ -82,9 +82,8 @@ const windows = [
 ]
 
 export const Calendar = () => {
-  const localItems = localStorage.getItem('openWindows') || []
-  const [openWindows, setOpenWindows] = useState(localItems)
-  const [header, setHeader] = useState('Advent')
+  const [openWindows, setOpenWindows] = useState(localStorage.getItem('openWindows') || [])
+  const [header, setHeader] = useState(openWindows.length > 0 ? 'Advent of dogs' : 'Advent')
 
   useEffect(() => {
     if (openWindows.length > 0) {
