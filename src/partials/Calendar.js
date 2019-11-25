@@ -77,8 +77,8 @@ const windows = [
   {id: 20, content: (play) => <Video play={play} src={dogs.dog20} />},
   {id: 21, content: (play) => <Video play={play} src={dogs.dog21} />},
   {id: 22, content: (play) => <Video play={play} src={dogs.dog22} />},
-  {id: 23, content: (play) => <YoutubeVideo play={play} src='https://www.youtube.com/embed/0zYW6NXnDOU' />},
-  {id: 24, content: (play) => <Video play={play} src={dogs.dog24} />},
+  {id: 23, content: (play) => <Video play={play} src={dogs.dog23} />},
+  {id: 24, content: (play) => <YoutubeVideo play={play} src='https://www.youtube.com/embed/0zYW6NXnDOU' />},
 ]
 
 export const Calendar = () => {
