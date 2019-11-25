@@ -1,0 +1,52 @@
+import dog1 from './videos/dog1.mp4';
+import dog2 from './videos/dog2.mp4';
+import dog3 from './videos/dog3.mp4';
+import dog4 from './img/dog4.png';
+import dog5 from './videos/dog5.mp4';
+import dog6 from './videos/dog6.mp4';
+import dog7 from './videos/dog7.mp4';
+import dog8 from './videos/dog8.mp4';
+import dog9 from './videos/dog9.mp4';
+import dog10 from './videos/dog10.mp4';
+import dog11 from './videos/dog11.mp4';
+import dog12 from './videos/dog12.mp4';
+import dog13 from './videos/dog13.mp4';
+import dog14 from './videos/dog14.mp4';
+import dog15 from './videos/dog15.mp4';
+import dog16 from './videos/dog16.mp4';
+import dog17 from './videos/dog17.mp4';
+import dog18 from './videos/dog18.mp4';
+import dog19 from './videos/dog19.mp4';
+import dog20 from './videos/dog1.mp4';
+import dog21 from './videos/dog1.mp4';
+import dog22 from './videos/dog1.mp4';
+import dog23 from './videos/dog1.mp4';
+import dog24 from './videos/dog1.mp4';
+import React from "react";
+
+export default [
+  {type: 'mp4', src: dog1},
+  {type: 'mp4', src: dog2},
+  {type: 'mp4', src: dog3},
+  {type: 'image', src: dog4},
+  {type: 'mp4', src: dog5},
+  {type: 'mp4', src: dog6},
+  {type: 'mp4', src: dog7},
+  {type: 'mp4', src: dog8},
+  {type: 'mp4', src: dog9},
+  {type: 'mp4', src: dog10},
+  {type: 'mp4', src: dog11},
+  {type: 'mp4', src: dog12},
+  {type: 'mp4', src: dog13},
+  {type: 'mp4', src: dog14},
+  {type: 'mp4', src: dog15},
+  {type: 'youtube', src: "https://www.youtube.com/embed/Fyn580ZD91U"},
+  {type: 'mp4', src: dog17},
+  {type: 'mp4', src: dog18},
+  {type: 'mp4', src: dog19},
+  {type: 'mp4', src: dog20},
+  {type: 'mp4', src: dog21},
+  {type: 'mp4', src: dog22},
+  {type: 'mp4', src: dog23},
+  {type: 'youtube', src: "https://www.youtube.com/embed/0zYW6NXnDOU"},
+]

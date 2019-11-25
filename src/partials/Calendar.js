@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import React, {useEffect, useState} from "react";
 import {Window} from "./Window";
-import dogs from "../res/videos/dogs";
+import dogs from "../res/dogs";
 
 const StyledCalendar = styled.div`
   max-width: 960px;
@@ -35,6 +35,13 @@ const StyledIframe = styled.iframe`
   height: 100%;
 `
 
+const StyledImg = styled.img`
+  max-width: 100%;
+  max-height: 100%;
+  display: block;
+  margin: auto;
+`
+
 const Video = ({play, src}) => {
   const ref = React.createRef();
   useEffect(() => {
@@ -54,32 +61,51 @@ const YoutubeVideo = ({play, src}) => {
   return <StyledIframe src={src} controls loop allow="autoplay; fullscreen" />
 }
 
+const Image = ({src}) => {
+  return <StyledImg src={src} />
+}
+
+const Media = ({id, play}) => {
+  const dog = dogs[id - 1]
+  const {type, src} = dog
+
+  switch (type) {
+    case 'mp4':
+      return <Video play={play} src={src} />
+    case 'youtube':
+      return <YoutubeVideo play={play} src={src} />
+    case 'image':
+      return <Image src={src} />
+    default:
+      return 'Not found'
+  }
+}
+
 const windows = [
-  {id: 1, content: (play) => <Video play={play} src={dogs.dog1} />},
-  {id: 2, content: (play) => <Video play={play} src={dogs.dog2} />},
-  {id: 3, content: (play) => <Video play={play} src={dogs.dog3} />},
-  {id: 4, content: (play) => <Video play={play} src={dogs.dog4} />},
-  {id: 5, content: (play) => <Video play={play} src={dogs.dog5} />},
-  {id: 6, content: (play) => <Video play={play} src={dogs.dog6} />},
-  {id: 7, content: (play) => <Video play={play} src={dogs.dog7} />},
-  {id: 8, content: (play) => <Video play={play} src={dogs.dog8} />},
-  {id: 9, content: (play) => <Video play={play} src={dogs.dog9} />},
-  {id: 10, content: (play) => <Video play={play} src={dogs.dog10} />},
-  {id: 11, content: (play) => <Video play={play} src={dogs.dog11} />},
-  {id: 12, content: (play) => <Video play={play} src={dogs.dog12} />},
-  {id: 13, content: (play) => <Video play={play} src={dogs.dog13} />},
-  {id: 14, content: (play) => <Video play={play} src={dogs.dog14} />},
-  {id: 15, content: (play) => <Video play={play} src={dogs.dog15} />},
-  //{id: 16, content: (play) => <Video play={play} src={dogs.dog16} />},
-  {id: 16, content: (play) => <YoutubeVideo play={play} src="https://www.youtube.com/embed/Fyn580ZD91U" />},
-  {id: 17, content: (play) => <Video play={play} src={dogs.dog17} />},
-  {id: 18, content: (play) => <Video play={play} src={dogs.dog18} />},
-  {id: 19, content: (play) => <Video play={play} src={dogs.dog19} />},
-  {id: 20, content: (play) => <Video play={play} src={dogs.dog20} />},
-  {id: 21, content: (play) => <Video play={play} src={dogs.dog21} />},
-  {id: 22, content: (play) => <Video play={play} src={dogs.dog22} />},
-  {id: 23, content: (play) => <Video play={play} src={dogs.dog23} />},
-  {id: 24, content: (play) => <YoutubeVideo play={play} src='https://www.youtube.com/embed/0zYW6NXnDOU' />},
+  {id: 1, content: (play) => <Media id={1} play={play} />},
+  {id: 2, content: (play) => <Media id={2} play={play} />},
+  {id: 3, content: (play) => <Media id={3} play={play} />},
+  {id: 4, content: (play) => <Media id={4} play={play} />},
+  {id: 5, content: (play) => <Media id={5} play={play} />},
+  {id: 6, content: (play) => <Media id={6} play={play} />},
+  {id: 7, content: (play) => <Media id={7} play={play} />},
+  {id: 8, content: (play) => <Media id={8} play={play} />},
+  {id: 9, content: (play) => <Media id={9} play={play} />},
+  {id: 10, content: (play) => <Media id={10} play={play} />},
+  {id: 11, content: (play) => <Media id={11} play={play} />},
+  {id: 12, content: (play) => <Media id={12} play={play} />},
+  {id: 13, content: (play) => <Media id={13} play={play} />},
+  {id: 14, content: (play) => <Media id={14} play={play} />},
+  {id: 15, content: (play) => <Media id={15} play={play} />},
+  {id: 16, content: (play) => <Media id={16} play={play} />},
+  {id: 17, content: (play) => <Media id={17} play={play} />},
+  {id: 18, content: (play) => <Media id={18} play={play} />},
+  {id: 19, content: (play) => <Media id={19} play={play} />},
+  {id: 20, content: (play) => <Media id={20} play={play} />},
+  {id: 21, content: (play) => <Media id={21} play={play} />},
+  {id: 22, content: (play) => <Media id={22} play={play} />},
+  {id: 23, content: (play) => <Media id={23} play={play} />},
+  {id: 24, content: (play) => <Media id={24} play={play} />},
 ]
 
 export const Calendar = () => {
