@@ -58,21 +58,18 @@ const getAbleToOpen = (id) => {
   return false
 }
 
-export const Window = ({id, content}) => {
-  const windows = JSON.parse(localStorage.getItem('windows'))
-  const open = windows ? windows[id] : false
+export const Window = ({id, content, setOpenWindows}) => {
+  const openWindows = JSON.parse(localStorage.getItem('openWindows')) || []
+  const open = openWindows.includes(id)
   const [play, setPlay] = useState(false)
   const ableToOpen = getAbleToOpen(id)
 
   const handleClick = () => {
     if (ableToOpen) {
-      const windows = JSON.parse(localStorage.getItem('windows')) || {};
-      const newWindows = {
-        ...windows,
-        [id]: true,
-      }
-
-      localStorage.setItem('windows', JSON.stringify(newWindows))
+      const openWindows = JSON.parse(localStorage.getItem('openWindows')) || []
+      const newOpenWindows = openWindows.concat(id)
+      localStorage.setItem('openWindows', JSON.stringify(newOpenWindows))
+      setOpenWindows(newOpenWindows)
       setPlay(true);
     }
   }

@@ -82,11 +82,21 @@ const windows = [
 ]
 
 export const Calendar = () => {
+  const localItems = localStorage.getItem('openWindows') || []
+  const [openWindows, setOpenWindows] = useState(localItems)
+  const [header, setHeader] = useState('Advent')
+
+  useEffect(() => {
+    if (openWindows.length > 0) {
+      setHeader('Advent of dogs')
+    }
+  }, [openWindows])
+
   return (
     <StyledCalendar>
-      <StyledHeader>Advent</StyledHeader>
+      <StyledHeader>{header}</StyledHeader>
       <StyledWindows>
-        {windows.map(window => <Window key={`window__${window.id}`} {...window} />)}
+        {windows.map(window => <Window key={`window__${window.id}`} setOpenWindows={setOpenWindows} {...window} />)}
       </StyledWindows>
     </StyledCalendar>
   )
