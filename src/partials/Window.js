@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import styled, {css} from "styled-components";
+import {Media} from "./Media";
 
 const StyledWindow = styled.li`
   width: 100%;
@@ -58,7 +59,7 @@ const getAbleToOpen = (id) => {
   return false
 }
 
-export const Window = ({id, content, setOpenWindows}) => {
+export const Window = ({id, setOpenWindows}) => {
   const openWindows = JSON.parse(localStorage.getItem('openWindows')) || []
   const open = openWindows.includes(id)
   const [play, setPlay] = useState(false)
@@ -81,7 +82,7 @@ export const Window = ({id, content, setOpenWindows}) => {
           {id}
         </StyledClosed>
         <StyledOpen>
-          {content(play)}
+          <Media id={id} play={play} />
         </StyledOpen>
       </StyledInnerWindow>
     </StyledWindow>
