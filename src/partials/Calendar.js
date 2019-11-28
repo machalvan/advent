@@ -57,8 +57,8 @@ const Video = ({play, src}) => {
 }
 
 const YoutubeVideo = ({play, src}) => {
-  src = src + '?enablejsapi=1&autoplay=' + (play ? 1 : 0)
-  return <StyledIframe src={src} controls loop allow="autoplay; fullscreen" />
+  src = 'https://www.youtube.com/embed/' + src + '?enablejsapi=1&loop=1&autoplay=' + (play ? 1 : 0) + '&playlist=' + src
+  return <StyledIframe src={src} allow="autoplay; fullscreen" />
 }
 
 const Image = ({src}) => {
@@ -77,7 +77,7 @@ const Media = ({id, play}) => {
     case 'image':
       return <Image src={src} />
     default:
-      return 'Not found'
+      return <div>Not found</div>
   }
 }
 
