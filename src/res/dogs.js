@@ -1,52 +1,52 @@
 import React from "react";
-import dog1 from './videos/video1.mp4';
-import dog2 from './videos/video2.mp4';
-import dog3 from './videos/video3.mp4';
-import dog4 from './img/image1.png';
-import dog5 from './videos/video4.mp4';
-import dog6 from './videos/video5.mp4';
-import dog7 from './videos/video6.mp4';
-import dog8 from './videos/video7.mp4';
-import dog9 from './videos/video8.mp4';
-import dog10 from './videos/video9.mp4';
-import dog11 from './videos/video10.mp4';
-import dog12 from './videos/video11.mp4';
-import dog13 from './videos/video12.mp4';
-import dog14 from './videos/video13.mp4';
-import dog15 from './videos/video14.mp4';
-import dog17 from './videos/video16.mp4';
-import dog18 from './videos/video17.mp4';
-import dog19 from './videos/video18.mp4';
-import dog20 from './img/image2.jpg';
-import dog21 from './videos/video19.mp4';
-import dog22 from './videos/video20.mp4';
-import dog23 from './videos/video21.mp4';
-const dog16 = "Fyn580ZD91U"
-const dog24 = "0zYW6NXnDOU"
+import video1 from './videos/video1.mp4';
+import video2 from './videos/video2.mp4';
+import video3 from './videos/video3.mp4';
+import image1 from './img/image1.png';
+import video4 from './videos/video4.mp4';
+import video5 from './videos/video5.mp4';
+import video6 from './videos/video6.mp4';
+import video7 from './videos/video7.mp4';
+import video8 from './videos/video8.mp4';
+import video9 from './videos/video9.mp4';
+import video10 from './videos/video10.mp4';
+import video11 from './videos/video11.mp4';
+import video12 from './videos/video12.mp4';
+import video13 from './videos/video13.mp4';
+import video14 from './videos/video14.mp4';
+import video16 from './videos/video16.mp4';
+import video17 from './videos/video17.mp4';
+import video18 from './videos/video18.mp4';
+import image2 from './img/image2.jpg';
+import video19 from './videos/video19.mp4';
+import video20 from './videos/video20.mp4';
+import video21 from './videos/video21.mp4';
+const youtube1 = "Fyn580ZD91U"
+const youtube2 = "0zYW6NXnDOU"
 
 export default [
-  {type: 'mp4', src: dog1},
-  {type: 'mp4', src: dog2},
-  {type: 'mp4', src: dog3},
-  {type: 'image', src: dog4},
-  {type: 'mp4', src: dog5},
-  {type: 'mp4', src: dog6},
-  {type: 'mp4', src: dog7},
-  {type: 'mp4', src: dog12},
-  {type: 'mp4', src: dog8},
-  {type: 'mp4', src: dog9},
-  {type: 'image', src: dog20},
-  {type: 'mp4', src: dog10},
-  {type: 'mp4', src: dog11},
-  {type: 'youtube', src: dog16},
-  {type: 'mp4', src: dog13},
-  {type: 'mp4', src: dog14},
-  {type: 'mp4', src: dog15},
-  {type: 'mp4', src: dog17},
-  {type: 'mp4', src: dog18},
-  {type: 'mp4', src: dog19},
-  {type: 'mp4', src: dog21},
-  {type: 'mp4', src: dog22},
-  {type: 'mp4', src: dog23},
-  {type: 'youtube', src: dog24},
+  {type: 'mp4', src: video1},
+  {type: 'mp4', src: video2},
+  {type: 'mp4', src: video3},
+  {type: 'image', src: image1},
+  {type: 'mp4', src: video4},
+  {type: 'mp4', src: video5},
+  {type: 'mp4', src: video6},
+  {type: 'mp4', src: video11},
+  {type: 'mp4', src: video7},
+  {type: 'mp4', src: video8},
+  {type: 'image', src: image2},
+  {type: 'mp4', src: video9},
+  {type: 'mp4', src: video10},
+  {type: 'youtube', src: youtube1},
+  {type: 'mp4', src: video12},
+  {type: 'mp4', src: video13},
+  {type: 'mp4', src: video14},
+  {type: 'mp4', src: video16},
+  {type: 'mp4', src: video17},
+  {type: 'mp4', src: video18},
+  {type: 'mp4', src: video19},
+  {type: 'mp4', src: video20},
+  {type: 'mp4', src: video21},
+  {type: 'youtube', src: youtube2},
 ]
