@@ -20,7 +20,7 @@ import dog19 from './videos/video18.mp4';
 import dog20 from './img/image2.jpg';
 import dog21 from './videos/video19.mp4';
 import dog22 from './videos/video20.mp4';
-import dog23 from './videos/dog23.mp4';
+import dog23 from './videos/video21.mp4';
 const dog16 = "Fyn580ZD91U"
 const dog24 = "0zYW6NXnDOU"
 
@@ -32,16 +32,16 @@ export default [
   {type: 'mp4', src: dog5},
   {type: 'mp4', src: dog6},
   {type: 'mp4', src: dog7},
+  {type: 'mp4', src: dog12},
   {type: 'mp4', src: dog8},
   {type: 'mp4', src: dog9},
   {type: 'image', src: dog20},
   {type: 'mp4', src: dog10},
   {type: 'mp4', src: dog11},
-  {type: 'mp4', src: dog12},
+  {type: 'youtube', src: dog16},
   {type: 'mp4', src: dog13},
   {type: 'mp4', src: dog14},
   {type: 'mp4', src: dog15},
-  {type: 'youtube', src: dog16},
   {type: 'mp4', src: dog17},
   {type: 'mp4', src: dog18},
   {type: 'mp4', src: dog19},
