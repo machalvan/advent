@@ -56,7 +56,7 @@ export default [
   {type: 'mp4', src: video9},
   {type: 'mp4', src: video16},
   {type: 'mp4', src: video15},
-  
+
   {type: 'mp4', src: video12},
   {type: 'mp4', src: video13},
   {type: 'mp4', src: video17},

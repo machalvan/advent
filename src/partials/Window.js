@@ -31,9 +31,13 @@ const StyledInnerWindow = styled.div`
 `
 
 const StyledClosed = styled.div`
-  padding-left: 10px;
-  padding-top: 5px;
+  background: #a52a2a;
   cursor: ${props => props.ableToOpen ? 'pointer' : 'inherit'};
+  
+  & > div {
+    margin-left: 10px;
+    margin-top: 5px;
+  }
 `
 
 const StyledOpen = styled.div`
@@ -79,7 +83,7 @@ export const Window = ({id, setOpenWindows}) => {
     <StyledWindow onClick={handleClick}>
       <StyledInnerWindow open={open && ableToOpen}>
         <StyledClosed ableToOpen={ableToOpen}>
-          {id}
+          <div>{id + 1}</div>
         </StyledClosed>
         <StyledOpen>
           <Media id={id} play={play} />
