@@ -24,7 +24,8 @@ const StyledInnerWindow = styled.div`
 `
 
 const StyledClosed = styled.div`
-  background: #a52a2a;
+  //background: #a52a2a;
+  background: #bf2224;
   cursor: ${props => props.ableToOpen ? 'pointer' : 'inherit'};
   border: 1px solid white;
   position: absolute;
