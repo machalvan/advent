@@ -1,16 +1,9 @@
 import React from 'react';
 import {Calendar} from "./partials/Calendar";
-import styled from "styled-components";
-
-const StyledApp = styled.div`
-  width: 100%;
-  height: 100vh;
-  position: absolute;
-`
 
 function App() {
   return (
-    <StyledApp>
+    <div>
       <Calendar/>
       <div className="snow-container">
         <div className="snow foreground"/>
@@ -20,7 +13,7 @@ function App() {
         <div className="snow background"/>
         <div className="snow background layered"/>
       </div>
-    </StyledApp>
+    </div>
   )
 }
 

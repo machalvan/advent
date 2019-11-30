@@ -10,6 +10,7 @@ const StyledVideo = styled.video`
 const StyledIframe = styled.iframe`
   width: 100%;
   height: 100%;
+  border-width: 0;
 `
 
 const StyledImg = styled.img`

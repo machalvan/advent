@@ -4,6 +4,7 @@ import {Media} from "./Media";
 
 const StyledWindow = styled.li`
   width: 100%;
+  height: 100%;
   color: white;
   transition-property: transform;
   transition-duration: 2s;
@@ -16,27 +17,24 @@ const StyledInnerWindow = styled.div`
   height: 100%;
   transition: transform 2s;
   transform-style: preserve-3d;
-  border: 1px solid white;
   
   ${props => props.open && css`
     transform: rotateY(180deg);
   `}
-  
-  & > div {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden;
-  }
 `
 
 const StyledClosed = styled.div`
   background: #a52a2a;
   cursor: ${props => props.ableToOpen ? 'pointer' : 'inherit'};
+  border: 1px solid white;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
   
   & > div {
     margin-left: 10px;
-    margin-top: 5px;
+    margin-top: 6px;
   }
 `
 
@@ -44,6 +42,12 @@ const StyledOpen = styled.div`
   background-color: black;
   color: white;
   transform: rotateY(180deg);
+  border: 1px solid white;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  margin-left: -2px;
+  backface-visibility: hidden;
 `
 
 const getAbleToOpen = (id) => {
