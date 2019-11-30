@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import React, {useEffect, useState} from "react";
+import React, {useState} from "react";
 import {Window} from "./Window";
 
 const StyledCalendar = styled.div`
@@ -24,15 +24,11 @@ const StyledWindows = styled.ul`
   padding: 0;
 `
 
-export const Calendar = () => {
-  const [openWindows, setOpenWindows] = useState(localStorage.getItem('openWindows') || [])
-  const [header, setHeader] = useState(openWindows.length > 0 ? 'Advent of dogs' : 'Advent')
+export const Calendar = ({header, setOpenWindows}) => {
+  //const [openWindows, setOpenWindows] = useState(localStorage.getItem('openWindows') || [])
+  //const [header, setHeader] = useState(openWindows.length > 0 ? 'Advent of dogs' : 'Advent')
 
-  useEffect(() => {
-    if (openWindows.length > 0) {
-      setHeader('Advent of dogs')
-    }
-  }, [openWindows])
+
 
   return (
     <StyledCalendar>

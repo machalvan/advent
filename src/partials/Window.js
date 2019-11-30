@@ -34,7 +34,7 @@ const StyledClosed = styled.div`
   
   & > div {
     margin-left: 10px;
-    margin-top: 6px;
+    margin-top: 5px;
   }
 `
 
