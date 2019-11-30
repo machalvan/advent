@@ -24,6 +24,7 @@ import video21 from './videos/video21.mp4';
 import video22 from './videos/video22.mp4';
 import video23 from './videos/video23.mp4';
 import video24 from './videos/video24.mp4';
+import video25 from './videos/video25.mp4';
 
 import image1 from './img/image1.png';
 import image2 from './img/image2.jpg';
@@ -32,9 +33,9 @@ const youtube1 = "Fyn580ZD91U"
 const youtube2 = "0zYW6NXnDOU"
 
 export default [
-  {type: 'mp4', src: video2},
-  {type: 'mp4', src: video1},
   {type: 'mp4', src: video24},
+  {type: 'mp4', src: video1},
+  {type: 'mp4', src: video2},
   {type: 'mp4', src: video3},
 
   {type: 'image', src: image1},
@@ -45,7 +46,7 @@ export default [
   {type: 'mp4', src: video22},
   {type: 'mp4', src: video6},
   {type: 'youtube', src: youtube1},
-  {type: 'mp4', src: video20},
+  {type: 'mp4', src: video25},
 
   {type: 'mp4', src: video11},
   {type: 'mp4', src: video21},
