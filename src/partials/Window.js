@@ -60,7 +60,7 @@ const getAbleToOpen = (id) => {
     currentDate.getMonth() === december &&
     currentDate.getDate() >= id
   ) || (
-    currentDate.getFullYear() > 2018
+    currentDate.getFullYear() > 2019
   )) {
     return true
   }
