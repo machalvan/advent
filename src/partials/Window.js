@@ -48,7 +48,6 @@ const StyledOpen = styled.div`
   height: 100%;
   margin-left: -2px;
   backface-visibility: hidden;
-  z-index: -99;
 `
 
 const getAbleToOpen = (id) => {
