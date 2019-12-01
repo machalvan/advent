@@ -70,14 +70,15 @@ const getAbleToOpen = (id) => {
 
 export const Window = ({id, setOpenWindows}) => {
   const openWindows = JSON.parse(localStorage.getItem('openWindows')) || []
-  const open = openWindows.includes(id)
+  const windowNumber = id + 1
+  const open = openWindows.includes(windowNumber)
   const [play, setPlay] = useState(false)
-  const ableToOpen = getAbleToOpen(id)
+  const ableToOpen = getAbleToOpen(windowNumber)
 
   const handleClick = () => {
     if (ableToOpen) {
       const openWindows = JSON.parse(localStorage.getItem('openWindows')) || []
-      const newOpenWindows = openWindows.concat(id)
+      const newOpenWindows = openWindows.concat(windowNumber)
       localStorage.setItem('openWindows', JSON.stringify(newOpenWindows))
       setOpenWindows(newOpenWindows)
       setPlay(true);
@@ -88,7 +89,7 @@ export const Window = ({id, setOpenWindows}) => {
     <StyledWindow onClick={handleClick}>
       <StyledInnerWindow open={open && ableToOpen}>
         <StyledClosed ableToOpen={ableToOpen}>
-          <div>{id + 1}</div>
+          <div>{windowNumber}</div>
         </StyledClosed>
         <StyledOpen>
           <Media id={id} play={play} />

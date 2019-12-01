@@ -25,11 +25,6 @@ const StyledWindows = styled.ul`
 `
 
 export const Calendar = ({header, setOpenWindows}) => {
-  //const [openWindows, setOpenWindows] = useState(localStorage.getItem('openWindows') || [])
-  //const [header, setHeader] = useState(openWindows.length > 0 ? 'Advent of dogs' : 'Advent')
-
-
-
   return (
     <StyledCalendar>
       <StyledHeader>{header}</StyledHeader>
