@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, {Component} from "react";
 import styled from "styled-components";
 import dogs from "../res/dogs";
 
@@ -20,18 +20,29 @@ const StyledImg = styled.img`
   margin: auto;
 `
 
-const Video = ({play, src}) => {
-  const ref = React.createRef();
-  useEffect(() => {
-    play && ref.current.play()
-  })
+class Video extends Component {
+  constructor(props) {
+    super(props)
+    this.myRef = React.createRef();
+  }
 
-  return (
-    <StyledVideo ref={ref} controls loop>
-      <source src={src} type="video/mp4"/>
-      Your browser does not support the video tag.
-    </StyledVideo>
-  )
+  shouldComponentUpdate(nextProps, nextState) {
+    if (this.props.play !== nextProps.play) {
+      nextProps.play && this.myRef.current.play()
+      return true
+    }
+
+    return false
+  }
+
+  render() {
+    return (
+      <StyledVideo ref={this.myRef} controls loop>
+        <source src={this.props.src} type="video/mp4"/>
+        Your browser does not support the video tag.
+      </StyledVideo>
+    )
+  }
 }
 
 const YoutubeVideo = ({play, src}) => {
