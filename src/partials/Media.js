@@ -37,7 +37,7 @@ class Video extends Component {
 
   render() {
     return (
-      <StyledVideo ref={this.myRef} controls loop>
+      <StyledVideo ref={this.myRef} controls /*loop*/>
         <source src={this.props.src} type="video/mp4"/>
         Your browser does not support the video tag.
       </StyledVideo>
@@ -46,7 +46,7 @@ class Video extends Component {
 }
 
 const YoutubeVideo = ({play, src}) => {
-  src = 'https://www.youtube.com/embed/' + src + '?enablejsapi=1&loop=1&autoplay=' + (play ? 1 : 0) + '&playlist=' + src
+  src = 'https://www.youtube.com/embed/' + src + '?enablejsapi=1' + /*'&loop=1' +*/ '&autoplay=' + (play ? 1 : 0) + '&playlist=' + src
   return <StyledIframe src={src} allow="autoplay; fullscreen" />
 }
 
