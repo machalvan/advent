@@ -26,9 +26,20 @@ class Video extends Component {
     this.myRef = React.createRef();
   }
 
+  /*
   shouldComponentUpdate(nextProps, nextState) {
     if (this.props.play !== nextProps.play) {
-      nextProps.play && this.myRef.current.play()
+      nextProps.play && this.myRef.current && this.myRef.current.play()
+      return true
+    }
+
+    return false
+  }
+  */
+
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    if (prevProps.play !== this.props.play) {
+      this.props.play && this.myRef.current.play()
       return true
     }
 
@@ -37,17 +48,19 @@ class Video extends Component {
 
   render() {
     return (
-      <StyledVideo ref={this.myRef} controls /*loop*/>
-        <source src={this.props.src} type="video/mp4"/>
-        Your browser does not support the video tag.
-      </StyledVideo>
+      this.props.play && (
+        <StyledVideo ref={this.myRef} controls /*loop*/>
+          <source src={this.props.src} type="video/mp4"/>
+          Your browser does not support the video tag.
+        </StyledVideo>
+      )
     )
   }
 }
 
 const YoutubeVideo = ({play, src}) => {
   src = 'https://www.youtube.com/embed/' + src + '?enablejsapi=1' + /*'&loop=1' +*/ '&autoplay=' + (play ? 1 : 0) + '&playlist=' + src
-  return <StyledIframe src={src} allow="autoplay; fullscreen" />
+  return play && <StyledIframe src={src} allow="autoplay; fullscreen" />
 }
 
 const Image = ({src}) => {
