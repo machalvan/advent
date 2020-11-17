@@ -52,7 +52,7 @@ const StyledOpen = styled.div`
 
 const getAbleToOpen = (windowNumber) => {
   const currentDate = new Date()
-  const currentYear = currentDate.getFullYear() - 1
+  const currentYear = currentDate.getFullYear()
   const december = 11
 
   return (
@@ -73,11 +73,14 @@ export const Window = ({id, setOpenWindows}) => {
 
   const handleClick = () => {
     if (ableToOpen) {
-      const openWindows = JSON.parse(localStorage.getItem('openWindows')) || []
-      const newOpenWindows = openWindows.concat(windowNumber)
-      localStorage.setItem('openWindows', JSON.stringify(newOpenWindows))
-      setOpenWindows(newOpenWindows)
       setPlay(true);
+      const openWindows = JSON.parse(localStorage.getItem('openWindows')) || []
+
+      if (!openWindows.includes(windowNumber)) {
+        const newOpenWindows = openWindows.concat(windowNumber)
+        localStorage.setItem('openWindows', JSON.stringify(newOpenWindows));
+        setOpenWindows(newOpenWindows)
+      }
     }
   }
 
