@@ -47,7 +47,7 @@ class Video extends Component {
   }
 
   render() {
-    const src = this.props.open ? this.props.src + "#t=0.1" : this.props.src
+    const src = this.props.src + (this.props.open ? "#t=0.1" : "")
 
     return (
       <StyledVideo ref={this.myRef} controls /*loop*/>
@@ -59,8 +59,12 @@ class Video extends Component {
 }
 
 const YoutubeVideo = ({play, src}) => {
-  src = 'https://www.youtube.com/embed/' + src + '?enablejsapi=1' + /*'&loop=1' +*/ '&autoplay=' + (play ? 1 : 0) + '&playlist=' + src
-  return play && <StyledIframe src={src} allow="autoplay; fullscreen" />
+  return (
+    <StyledIframe
+      src={`https://www.youtube.com/embed/${src}?enablejsapi=1&autoplay=${play ? 1 : 0}&playlist=${src}`}
+      allow="autoplay; fullscreen"
+    />
+  )
 }
 
 const Image = ({src}) => {
