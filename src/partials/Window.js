@@ -50,21 +50,18 @@ const StyledOpen = styled.div`
   backface-visibility: hidden;
 `
 
-const getAbleToOpen = (id) => {
+const getAbleToOpen = (windowNumber) => {
   const currentDate = new Date()
+  const currentYear = currentDate.getFullYear() - 1
   const december = 11
 
-  if ((
-    currentDate.getFullYear() === 2019 &&
+  return (
+    currentDate.getFullYear() === currentYear &&
     currentDate.getMonth() === december &&
-    currentDate.getDate() >= id
+    currentDate.getDate() >= windowNumber
   ) || (
-    currentDate.getFullYear() > 2019
-  )) {
-    return true
-  }
-
-  return false
+    currentDate.getFullYear() > currentYear
+  );
 }
 
 export const Window = ({id, setOpenWindows}) => {
