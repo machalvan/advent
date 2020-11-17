@@ -47,13 +47,13 @@ class Video extends Component {
   }
 
   render() {
+    const src = this.props.open ? this.props.src + "#t=0.1" : this.props.src
+
     return (
-      this.props.play && (
-        <StyledVideo ref={this.myRef} controls /*loop*/>
-          <source src={this.props.src} type="video/mp4"/>
-          Your browser does not support the video tag.
-        </StyledVideo>
-      )
+      <StyledVideo ref={this.myRef} controls /*loop*/>
+        <source src={src} type="video/mp4"/>
+        Your browser does not support the video tag.
+      </StyledVideo>
     )
   }
 }
@@ -67,13 +67,13 @@ const Image = ({src}) => {
   return <StyledImg src={src} />
 }
 
-export const Media = ({id, play}) => {
+export const Media = ({id, play, open}) => {
   const dog = dogs[id]
   const {type, src} = dog
 
   switch (type) {
     case 'mp4':
-      return <Video play={play} src={src} />
+      return <Video play={play} src={src} open={open} />
     case 'youtube':
       return <YoutubeVideo play={play} src={src} />
     case 'image':
