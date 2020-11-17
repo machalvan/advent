@@ -58,8 +58,8 @@ class Video extends Component {
   }
 }
 
-const YoutubeVideo = ({play, src}) => {
-  return (
+const YoutubeVideo = ({play, src, open}) => {
+  return (play || open) && (
     <StyledIframe
       src={`https://www.youtube.com/embed/${src}?enablejsapi=1&autoplay=${play ? 1 : 0}&playlist=${src}`}
       allow="autoplay; fullscreen"
@@ -79,7 +79,7 @@ export const Media = ({id, play, open}) => {
     case 'mp4':
       return <Video play={play} src={src} open={open} />
     case 'youtube':
-      return <YoutubeVideo play={play} src={src} />
+      return <YoutubeVideo play={play} src={src} open={open} />
     case 'image':
       return <Image src={src} />
     default:
