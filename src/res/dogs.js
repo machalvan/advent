@@ -30,34 +30,67 @@ import image2 from './img/image2.jpg';
 const youtube1 = "Fyn580ZD91U"
 const youtube2 = "0zYW6NXnDOU"
 
-export default [
-  {type: 'mp4', src: video24},
-  {type: 'mp4', src: video1},
-  {type: 'mp4', src: video2},
-  {type: 'mp4', src: video3},
+export default {
+  2019: [
+    {type: 'mp4', src: video24},
+    {type: 'mp4', src: video1},
+    {type: 'mp4', src: video2},
+    {type: 'mp4', src: video3},
 
-  {type: 'image', src: image1},
-  {type: 'mp4', src: video4},
-  {type: 'mp4', src: video23},
-  {type: 'mp4', src: video5},
+    {type: 'image', src: image1},
+    {type: 'mp4', src: video4},
+    {type: 'mp4', src: video23},
+    {type: 'mp4', src: video5},
 
-  {type: 'mp4', src: video22},
-  {type: 'mp4', src: video6},
-  {type: 'youtube', src: youtube1},
-  {type: 'mp4', src: video25},
+    {type: 'mp4', src: video22},
+    {type: 'mp4', src: video6},
+    {type: 'youtube', src: youtube1},
+    {type: 'mp4', src: video25},
 
-  {type: 'mp4', src: video11},
-  {type: 'mp4', src: video21},
-  {type: 'mp4', src: video7},
-  {type: 'mp4', src: video8},
+    {type: 'mp4', src: video11},
+    {type: 'mp4', src: video21},
+    {type: 'mp4', src: video7},
+    {type: 'mp4', src: video8},
 
-  {type: 'image', src: image2},
-  {type: 'mp4', src: video9},
-  {type: 'mp4', src: video16},
-  {type: 'mp4', src: video15},
+    {type: 'image', src: image2},
+    {type: 'mp4', src: video9},
+    {type: 'mp4', src: video16},
+    {type: 'mp4', src: video15},
 
-  {type: 'mp4', src: video12},
-  {type: 'mp4', src: video13},
-  {type: 'mp4', src: video17},
-  {type: 'youtube', src: youtube2},
-]
+    {type: 'mp4', src: video12},
+    {type: 'mp4', src: video13},
+    {type: 'mp4', src: video17},
+    {type: 'youtube', src: youtube2},
+  ],
+  2020: [
+    {type: 'mp4', src: video10},
+    {type: 'mp4', src: video14},
+    {type: 'mp4', src: video18},
+    {type: 'mp4', src: video19},
+
+    {type: 'mp4', src: video20},
+    {type: 'mp4', src: video4},
+    {type: 'mp4', src: video23},
+    {type: 'mp4', src: video5},
+
+    {type: 'mp4', src: video22},
+    {type: 'mp4', src: video6},
+    {type: 'youtube', src: youtube1},
+    {type: 'mp4', src: video25},
+
+    {type: 'mp4', src: video11},
+    {type: 'mp4', src: video21},
+    {type: 'mp4', src: video7},
+    {type: 'mp4', src: video8},
+
+    {type: 'image', src: image2},
+    {type: 'mp4', src: video9},
+    {type: 'mp4', src: video16},
+    {type: 'mp4', src: video15},
+
+    {type: 'mp4', src: video12},
+    {type: 'mp4', src: video13},
+    {type: 'mp4', src: video17},
+    {type: 'youtube', src: youtube2},
+  ],
+}
