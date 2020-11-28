@@ -1,24 +1,16 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import {Calendar} from "./partials/Calendar";
 import {Snow} from "./partials/Snow";
 
-function App() {
-  const [openWindows, setOpenWindows] = useState(localStorage.getItem('openWindows') || [])
-  const [anyWindowOpen, setAnyWindowOpen] = useState(openWindows.length > 0)
-  const header = anyWindowOpen ? 'Advent of dogs' : 'Advent'
-  const showSnow = anyWindowOpen
-
-  useEffect(() => {
-    const openWindows = localStorage.getItem('openWindows') || []
-    setAnyWindowOpen(openWindows.length > 0)
-  }, [localStorage.getItem('openWindows')])
+export const App = () => {
+  const initialOpenWindows = () => localStorage.getItem('openWindows') || []
+  const [openWindows, setOpenWindows] = useState(initialOpenWindows)
+  const anyWindowOpen = openWindows.length > 0
 
   return (
     <div>
-      <Calendar header={header} setOpenWindows={setOpenWindows} />
-      {showSnow && <Snow />}
+      <Calendar header={anyWindowOpen ? 'Advent of dogs' : 'Advent'} setOpenWindows={setOpenWindows} />
+      {anyWindowOpen && <Snow />}
     </div>
   )
 }
-
-export default App;

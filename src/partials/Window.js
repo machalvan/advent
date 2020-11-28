@@ -52,7 +52,7 @@ const StyledOpen = styled.div`
 
 const getAbleToOpen = (windowNumber) => {
   const currentDate = new Date()
-  const currentYear = currentDate.getFullYear()
+  const currentYear = currentDate.getFullYear() - 1
   const december = 11
 
   return (
