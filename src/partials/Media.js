@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import styled from "styled-components";
-import dogs from "../res/dogs";
+import dogs from "../dogs";
 
 const StyledVideo = styled.video`
   width: 100%;
