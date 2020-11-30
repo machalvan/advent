@@ -76,3 +76,13 @@ code {
     transform: translate3d(0, 100%, 0);
   }
 }
+
+@keyframes snowGround {
+  0% {
+    height: 0;
+  }
+
+  100% {
+    height: 200px;
+  }
+}

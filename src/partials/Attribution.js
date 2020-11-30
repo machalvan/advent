@@ -3,12 +3,12 @@ import styled from "styled-components";
 
 const StyledAttribution = styled.div`
   text-align: center;
-  color: white;
+  color: #bbb;
   font-size: 10px;
   margin-bottom: 6px;
   
   & > a {
-    color: white;
+    color: #bbb;
   }
 `;
 

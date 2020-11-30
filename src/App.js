@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import {Calendar} from "./partials/Calendar";
 import {Snow} from "./partials/Snow";
 import {Attribution} from "./partials/Attribution";
+import {SnowGround} from "./partials/SnowGround";
 
 export const App = () => {
   const currentYear = new Date().getFullYear()
@@ -17,7 +18,12 @@ export const App = () => {
         setOpenWindows={setOpenWindows}
       />
       <Attribution />
-      {anyWindowOpen && <Snow />}
+      {anyWindowOpen && (
+        <>
+          <SnowGround />
+          <Snow />
+        </>
+      )}
     </div>
   )
 }
