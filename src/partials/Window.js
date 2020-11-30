@@ -52,15 +52,13 @@ const StyledOpen = styled.div`
 
 const getAbleToOpen = (windowNumber) => {
   const currentDate = new Date()
-  const currentYear = currentDate.getFullYear()
   const december = 11
 
   return (
-    currentDate.getFullYear() === currentYear &&
     currentDate.getMonth() === december &&
     currentDate.getDate() >= windowNumber
   ) || (
-    currentDate.getFullYear() > currentYear
+    currentDate.getMonth() < december - 1
   );
 }
 
