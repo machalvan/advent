@@ -16,8 +16,8 @@ export const App = () => {
         openWindows={openWindows}
         setOpenWindows={setOpenWindows}
       />
-      {anyWindowOpen && <Snow />}
       <Attribution />
+      {anyWindowOpen && <Snow />}
     </div>
   )
 }

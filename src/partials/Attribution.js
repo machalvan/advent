@@ -6,6 +6,10 @@ const StyledAttribution = styled.div`
   color: white;
   font-size: 10px;
   margin-bottom: 6px;
+  
+  & > a {
+    color: white;
+  }
 `;
 
 export const Attribution = () => (
