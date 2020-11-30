@@ -54,6 +54,7 @@ const getAbleToOpen = (windowNumber) => {
   const currentDate = new Date()
   const december = 11
 
+  return true;
   return (
     currentDate.getMonth() === december &&
     currentDate.getDate() >= windowNumber
