@@ -24,12 +24,12 @@ const StyledWindows = styled.ul`
   padding: 0;
 `
 
-export const Calendar = ({header, setOpenWindows}) => {
+export const Calendar = ({header, ...props}) => {
   return (
     <StyledCalendar>
       <StyledHeader>{header}</StyledHeader>
       <StyledWindows>
-        {[...Array(24)].map((_, id) => <Window key={`window__${id}`} id={id} setOpenWindows={setOpenWindows} />)}
+        {[...Array(24)].map((_, id) => <Window key={`window__${id}`} id={id} {...props} />)}
       </StyledWindows>
     </StyledCalendar>
   )

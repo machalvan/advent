@@ -62,8 +62,8 @@ const getAbleToOpen = (windowNumber) => {
   );
 }
 
-export const Window = ({id, setOpenWindows}) => {
-  const openWindows = JSON.parse(localStorage.getItem('openWindows')) || []
+export const Window = ({id, openWindows, setOpenWindows}) => {
+  const currentYear = new Date().getFullYear()
   const windowNumber = id + 1
   const open = openWindows.includes(windowNumber)
   const [play, setPlay] = useState(false)
@@ -72,11 +72,10 @@ export const Window = ({id, setOpenWindows}) => {
   const handleClick = () => {
     if (ableToOpen) {
       setPlay(true);
-      const openWindows = JSON.parse(localStorage.getItem('openWindows')) || []
 
       if (!openWindows.includes(windowNumber)) {
         const newOpenWindows = openWindows.concat(windowNumber)
-        localStorage.setItem('openWindows', JSON.stringify(newOpenWindows));
+        localStorage.setItem(`openWindows.${currentYear}`, JSON.stringify(newOpenWindows));
         setOpenWindows(newOpenWindows)
       }
     }
