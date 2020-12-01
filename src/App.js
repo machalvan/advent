@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 import {Calendar} from "./partials/Calendar";
 import {Snow} from "./partials/Snow";
 import {Attribution} from "./partials/Attribution";
@@ -9,6 +9,13 @@ export const App = () => {
   const initialOpenWindows = () => JSON.parse(localStorage.getItem(`openWindows.${currentYear}`)) || []
   const [openWindows, setOpenWindows] = useState(initialOpenWindows)
   const anyWindowOpen = openWindows.length > 0
+  const prevOpenWindowsRef = useRef();
+  const prevOpenWindows = prevOpenWindowsRef.current;
+  const isFirstSnow = prevOpenWindows === 0
+
+  useEffect(() => {
+    prevOpenWindowsRef.current = openWindows.length;
+  }, []);
 
   return (
     <div>
@@ -18,12 +25,8 @@ export const App = () => {
         setOpenWindows={setOpenWindows}
       />
       <Attribution />
-      {anyWindowOpen && (
-        <>
-          <SnowGround />
-          <Snow />
-        </>
-      )}
+      <SnowGround openWindows={openWindows} />
+      {anyWindowOpen && <Snow isFirstSnow={isFirstSnow} />}
     </div>
   )
 }
