@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React, {Component, useEffect} from "react";
 import styled from "styled-components";
 import dogs from "../dogs";
 
@@ -38,10 +38,49 @@ class Video extends Component {
   */
 
   componentDidUpdate(prevProps, prevState, snapshot) {
-    if (prevProps.play !== this.props.play) {
-      this.props.play && this.myRef.current.play()
-      return true
+    console.log("did update")
+
+    function addSourceToVideo(element, src, type) {
+      var source = document.createElement('source');
+      source.src = src;
+      source.type = type;
+      element.appendChild(source);
     }
+
+    const progressHandler = function(e) {
+      if( video.duration ) {
+        var percent = (video.buffered.end(0)/video.duration) * 100;
+        console.log( percent );
+        if( percent >= 100 ) {
+          console.log("loaded!");
+        }
+        video.currentTime += 2;
+        console.log("current", video.currentTime)
+      }
+    }
+
+    const video = this.myRef.current
+    const src = this.props.src //+ (this.props.open ? "#t=0.1" : "")
+    addSourceToVideo( video, src, "video/mp4");
+    video.addEventListener("progress", progressHandler, false);
+
+    // console.log("vid", video.src)
+    // console.log("buf2", video.buffered)
+    // if (video.buffered.length > 0) {
+    //   console.log("you are here", Math.round(video.buffered.end(0)), Math.round(video.seekable.end(0)))
+    //   if (Math.round(video.buffered.end(0)) / Math.round(video.seekable.end(0)) === 1) {
+    //     // Entire video is downloaded
+    //     console.log("Entire video is downloaded");
+    //     setTimeout(() => {
+    //       console.log("World!");
+    //
+    //       if (prevProps.play !== this.props.play) {
+    //         this.props.play && this.myRef.current.play()
+    //         return true
+    //       }
+    //     }, 2000);
+    //   }
+    // }
 
     return false
   }
@@ -51,11 +90,52 @@ class Video extends Component {
 
     return (
       <StyledVideo ref={this.myRef} controls /*loop*/>
-        <source src={src} type="video/mp4"/>
-        Your browser does not support the video tag.
+        {/*<source src={src} type="video/mp4"/>
+        Your browser does not support the video tag.*/}
       </StyledVideo>
     )
   }
+}
+
+const Video2 = ({src, play, beingOpened, setBeingOpened}) => {
+  const myRef = React.createRef();
+
+  useEffect(() => {
+    const myVid = myRef.current
+
+    if (!myVid) return
+    if (!beingOpened) return
+    setBeingOpened(false)
+
+    const req = new XMLHttpRequest();
+    req.open('GET', src, true);
+    req.responseType = 'blob';
+
+    req.onload = function() {
+      // Onload is triggered even on 404
+      // so we need to check the status code
+      if (this.status === 200) {
+        const videoBlob = this.response;
+        // Video is now downloaded
+        // and we can set it as source on the video element
+        myVid.src = URL.createObjectURL(videoBlob); // IE10+
+        play && myVid.play()
+      }
+    }
+
+    req.onerror = function() {
+      console.log("ERROR")
+    }
+
+    req.send();
+  }, [myRef])
+
+  return (
+    <StyledVideo ref={myRef} controls /*loop*/>
+      <source src={src} type="video/mp4"/>
+        Your browser does not support the video tag.
+    </StyledVideo>
+  )
 }
 
 const YoutubeVideo = ({play, src, open}) => {
@@ -71,7 +151,7 @@ const Image = ({src}) => {
   return <StyledImg src={src} />
 }
 
-export const Media = ({id, play, open}) => {
+export const Media = ({id, play, open, beingOpened, setBeingOpened}) => {
   const currentDate = new Date()
   const currentYear = currentDate.getFullYear()
   const dog = dogs[currentYear][id]
@@ -79,7 +159,7 @@ export const Media = ({id, play, open}) => {
 
   switch (type) {
     case 'mp4':
-      return <Video play={play} src={src} open={open} />
+      return <Video2 play={play} src={src} open={open} beingOpened={beingOpened} setBeingOpened={setBeingOpened} />
     case 'youtube':
       return <YoutubeVideo play={play} src={src} open={open} />
     case 'image':

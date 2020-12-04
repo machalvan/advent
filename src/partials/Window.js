@@ -67,10 +67,12 @@ export const Window = ({id, openWindows, setOpenWindows}) => {
   const windowNumber = id + 1
   const open = openWindows.includes(windowNumber)
   const [play, setPlay] = useState(false)
+  const [beingOpened, setBeingOpened] = useState(false)
   const ableToOpen = getAbleToOpen(windowNumber)
 
   const handleClick = () => {
     if (ableToOpen) {
+      setBeingOpened(true)
       setPlay(true);
 
       if (!openWindows.includes(windowNumber)) {
@@ -88,7 +90,7 @@ export const Window = ({id, openWindows, setOpenWindows}) => {
           <div>{windowNumber}</div>
         </StyledClosed>
         <StyledOpen>
-          <Media id={id} play={play} open={open} />
+          <Media id={id} play={play} open={open} beingOpened={beingOpened} setBeingOpened={setBeingOpened} />
         </StyledOpen>
       </StyledInnerWindow>
     </StyledWindow>
