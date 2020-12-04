@@ -119,6 +119,7 @@ const Video2 = ({src, play, beingOpened, setBeingOpened}) => {
         // Video is now downloaded
         // and we can set it as source on the video element
         myVid.src = URL.createObjectURL(videoBlob); // IE10+
+        myVid.setAttribute("controls","controls")
         play && myVid.play()
       }
     }
@@ -131,7 +132,7 @@ const Video2 = ({src, play, beingOpened, setBeingOpened}) => {
   }, [myRef])
 
   return (
-    <StyledVideo ref={myRef} controls /*loop*/>
+    <StyledVideo ref={myRef} /*loop*/>
       <source src={src} type="video/mp4"/>
         Your browser does not support the video tag.
     </StyledVideo>
