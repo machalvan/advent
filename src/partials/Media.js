@@ -26,72 +26,26 @@ class Video extends Component {
     this.myRef = React.createRef();
   }
 
-  /*
-  shouldComponentUpdate(nextProps, nextState) {
-    if (this.props.play !== nextProps.play) {
-      nextProps.play && this.myRef.current && this.myRef.current.play()
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    if (prevProps.play !== this.props.play) {
+      this.props.play && this.myRef.current.play()
       return true
     }
 
     return false
   }
-  */
 
-  componentDidUpdate(prevProps, prevState, snapshot) {
-    console.log("did update")
-
-    function addSourceToVideo(element, src, type) {
-      var source = document.createElement('source');
-      source.src = src;
-      source.type = type;
-      element.appendChild(source);
-    }
-
-    const progressHandler = function(e) {
-      if( video.duration ) {
-        var percent = (video.buffered.end(0)/video.duration) * 100;
-        console.log( percent );
-        if( percent >= 100 ) {
-          console.log("loaded!");
-        }
-        video.currentTime += 2;
-        console.log("current", video.currentTime)
-      }
-    }
-
-    const video = this.myRef.current
-    const src = this.props.src //+ (this.props.open ? "#t=0.1" : "")
-    addSourceToVideo( video, src, "video/mp4");
-    video.addEventListener("progress", progressHandler, false);
-
-    // console.log("vid", video.src)
-    // console.log("buf2", video.buffered)
-    // if (video.buffered.length > 0) {
-    //   console.log("you are here", Math.round(video.buffered.end(0)), Math.round(video.seekable.end(0)))
-    //   if (Math.round(video.buffered.end(0)) / Math.round(video.seekable.end(0)) === 1) {
-    //     // Entire video is downloaded
-    //     console.log("Entire video is downloaded");
-    //     setTimeout(() => {
-    //       console.log("World!");
-    //
-    //       if (prevProps.play !== this.props.play) {
-    //         this.props.play && this.myRef.current.play()
-    //         return true
-    //       }
-    //     }, 2000);
-    //   }
-    // }
-
-    return false
+  componentDidMount() {
+    this.props.setBeingOpened(false)
   }
 
   render() {
-    const src = this.props.src + (this.props.open ? "#t=0.1" : "")
+    const src = this.props.src + (this.props.open && !this.props.beingOpened ? "#t=0.1" : "")
 
     return (
-      <StyledVideo ref={this.myRef} controls /*loop*/>
-        {/*<source src={src} type="video/mp4"/>
-        Your browser does not support the video tag.*/}
+      <StyledVideo ref={this.myRef} controls preload="auto">
+        <source src={src} type="video/mp4"/>
+        Your browser does not support the video tag.
       </StyledVideo>
     )
   }
@@ -160,7 +114,7 @@ export const Media = ({id, play, open, beingOpened, setBeingOpened}) => {
 
   switch (type) {
     case 'mp4':
-      return <Video2 play={play} src={src} open={open} beingOpened={beingOpened} setBeingOpened={setBeingOpened} />
+      return <Video play={play} src={src} open={open} beingOpened={beingOpened} setBeingOpened={setBeingOpened} />
     case 'youtube':
       return <YoutubeVideo play={play} src={src} open={open} />
     case 'image':
