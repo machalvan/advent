@@ -1,5 +1,5 @@
-import styled from "styled-components";
 import React from "react";
+import styled, {css} from "styled-components";
 import {Window} from "./Window";
 
 const StyledCalendar = styled.div`
@@ -11,6 +11,10 @@ const StyledHeader = styled.h1`
   text-align: center;
   color: white;
   font-family: Arial, sans-serif;
+  ${({ dark }) => dark && css`
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+  `};
 `
 
 const StyledWindows = styled.ul`
@@ -27,7 +31,7 @@ const StyledWindows = styled.ul`
 export const Calendar = ({header, ...props}) => {
   return (
     <StyledCalendar>
-      <StyledHeader>{header}</StyledHeader>
+      <StyledHeader dark={props.openWindows.length >= 20}>{header}</StyledHeader>
       <StyledWindows>
         {[...Array(24)].map((_, id) => <Window key={`window__${id}`} id={id} {...props} />)}
       </StyledWindows>
