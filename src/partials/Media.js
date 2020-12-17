@@ -1,4 +1,4 @@
-import React, {Component, useEffect} from "react";
+import React, {Component} from "react";
 import styled from "styled-components";
 import dogs from "../dogs";
 
@@ -35,62 +35,16 @@ class Video extends Component {
     return false
   }
 
-  componentDidMount() {
-    this.props.setBeingOpened(false)
-  }
-
   render() {
-    const src = this.props.src + (this.props.open && !this.props.beingOpened ? "#t=0.1" : "")
+    const src = this.props.src + (this.props.open ? "#t=0.1" : "")
 
     return (
-      <StyledVideo ref={this.myRef} controls preload="auto">
+      <StyledVideo ref={this.myRef} controls /*loop*/>
         <source src={src} type="video/mp4"/>
         Your browser does not support the video tag.
       </StyledVideo>
     )
   }
-}
-
-const Video2 = ({src, play, beingOpened, setBeingOpened}) => {
-  const myRef = React.createRef();
-
-  useEffect(() => {
-    const myVid = myRef.current
-
-    if (!myVid) return
-    if (!beingOpened) return
-    setBeingOpened(false)
-
-    const req = new XMLHttpRequest();
-    req.open('GET', src, true);
-    req.responseType = 'blob';
-
-    req.onload = function() {
-      // Onload is triggered even on 404
-      // so we need to check the status code
-      if (this.status === 200) {
-        const videoBlob = this.response;
-        // Video is now downloaded
-        // and we can set it as source on the video element
-        myVid.src = URL.createObjectURL(videoBlob); // IE10+
-        myVid.setAttribute("controls","controls")
-        play && myVid.play()
-      }
-    }
-
-    req.onerror = function() {
-      console.log("ERROR")
-    }
-
-    req.send();
-  }, [myRef])
-
-  return (
-    <StyledVideo ref={myRef} /*loop*/>
-      <source src={src} type="video/mp4"/>
-        Your browser does not support the video tag.
-    </StyledVideo>
-  )
 }
 
 const YoutubeVideo = ({play, src, open}) => {
@@ -106,7 +60,7 @@ const Image = ({src}) => {
   return <StyledImg src={src} />
 }
 
-export const Media = ({id, play, open, beingOpened, setBeingOpened}) => {
+export const Media = ({id, play, open}) => {
   const currentDate = new Date()
   const currentYear = currentDate.getFullYear()
   const dog = dogs[currentYear][id]
@@ -114,7 +68,7 @@ export const Media = ({id, play, open, beingOpened, setBeingOpened}) => {
 
   switch (type) {
     case 'mp4':
-      return <Video play={play} src={src} open={open} beingOpened={beingOpened} setBeingOpened={setBeingOpened} />
+      return <Video play={play} src={src} open={open} />
     case 'youtube':
       return <YoutubeVideo play={play} src={src} open={open} />
     case 'image':
