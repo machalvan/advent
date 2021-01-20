@@ -57,9 +57,7 @@ const getAbleToOpen = (windowNumber) => {
   return (
     currentDate.getMonth() === december &&
     currentDate.getDate() >= windowNumber
-  ) || (
-    currentDate.getMonth() < december - 1
-  );
+  )
 }
 
 export const Window = ({id, openWindows, setOpenWindows}) => {

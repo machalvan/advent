@@ -63,8 +63,8 @@ const Image = ({src}) => {
 export const Media = ({id, play, open}) => {
   const currentDate = new Date()
   const currentYear = currentDate.getFullYear()
-  const dog = dogs[currentYear][id]
-  const {type, src} = dog
+  const dog = dogs[currentYear] ? dogs[currentYear][id] : {}
+  const {type, src} = dog 
 
   switch (type) {
     case 'mp4':
